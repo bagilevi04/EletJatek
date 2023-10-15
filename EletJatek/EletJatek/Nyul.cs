@@ -42,10 +42,16 @@
                     }
                     break;
                 case 3:
-                    UjPozY += 1;
+                    if (NyPozY + 1 < meret)
+                    {
+                        UjPozY += 1;
+                    }
                     break;
                 case 4:
-                    UjPozY -= 1;
+                    if (NyPozY - 1 >= 0)
+                    {
+                        UjPozY -= 1;
+                    }
                     break;
                 default:
                     break;
