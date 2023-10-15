@@ -7,11 +7,25 @@ namespace EletJatek
 {
     public class Szimulacio
     {
-        public void Kor(char[,] matrix, List<Nyul> nyulak)
+        public void Kor(char[,] matrix, List<Allatok> allatok)
         {
-            foreach (var nyul in nyulak)
+            List<Allatok> halottallat = new List<Allatok>();
+
+
+            foreach (var allat in allatok)
             {
-                nyul.NyulMozog(matrix);
+                allat.Mozog(matrix);
+                allat.Eszik(matrix);
+                allat.Ehezik();
+                if (allat.Halott)
+                {
+                    halottallat.Add(allat);
+                }
+            }
+
+            foreach (var halott in halottallat)
+            {
+                halott.Meghalt(matrix, allatok);
             }
 
             for (int i = 0; i < matrix.GetLength(0); i++)

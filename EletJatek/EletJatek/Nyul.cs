@@ -1,54 +1,40 @@
 ﻿namespace EletJatek
 {
-    public class Nyul
+    public class Nyul : Allatok
     {
-        static int Id = 0;
-        public int mutato { get; init; }
-        public int NyPozX { get; set; }
-        public int NyPozY { get; set; }
-        public int Hunger { get; set; }
-        public char FuErtek { get; set; }
-        
-        private static readonly Random random = new Random();
-
-        public Nyul(int x, int y, char fuertek)
+        public Nyul(int x, int y, char fuertek) : base(x, y, fuertek)
         {
-            mutato = ++Id;
-            NyPozX = x;
-            NyPozY = y;
-            Hunger = 5; //Éhség kezdőérték
-            FuErtek = fuertek;
         }
 
-        public void NyulMozog(char[,] matrix)
+        public override void Mozog(char[,] matrix)
         {
             int meret = matrix.GetLength(0);
-            int UjPozX = NyPozX;
-            int UjPozY = NyPozY;
+            int UjPozX = PozX;
+            int UjPozY = PozY;
             int mozog = random.Next(1, 5);
             
             switch (mozog)
             {
                 case 1:
-                    if (NyPozX + 1 < meret)
+                    if (PozX + 1 < meret)
                     {
                         UjPozX += 1;
                     }
                     break;
                 case 2:
-                    if (NyPozX - 1 >= 0)
+                    if (PozX - 1 >= 0)
                     {
                         UjPozX -= 1;
                     }
                     break;
                 case 3:
-                    if (NyPozY + 1 < meret)
+                    if (PozY + 1 < meret)
                     {
                         UjPozY += 1;
                     }
                     break;
                 case 4:
-                    if (NyPozY - 1 >= 0)
+                    if (PozY - 1 >= 0)
                     {
                         UjPozY -= 1;
                     }
@@ -56,7 +42,7 @@
                 default:
                     break;
             }
-            if (UjPozX == NyPozX && UjPozY == NyPozY)
+            if (UjPozX == PozX && UjPozY == PozY)
             {
                 return;
             }
@@ -64,11 +50,30 @@
             {
                 return;
             }
-            matrix[NyPozX, NyPozY] = FuErtek;
-            NyPozX = UjPozX;
-            NyPozY = UjPozY;
+            matrix[PozX, PozY] = FuErtek;
+            PozX = UjPozX;
+            PozY = UjPozY;
             FuErtek = matrix[UjPozX, UjPozY];
             matrix[UjPozX, UjPozY] = 'N';
+        }
+
+        public override void Eszik(char[,] matrix)
+        {
+            switch (FuErtek)
+            {
+                case '0':
+                    return;
+                case '1':
+                    Ehseg++;
+                    FuErtek = '0';
+                    break;
+                case '2':
+                    Ehseg += 2;
+                    FuErtek = '0';
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

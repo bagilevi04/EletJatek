@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using EletJatek;
 
-List<Nyul> nyulak = new List<Nyul>();
+List<Allatok> allatok = new List<Allatok>();
 Szimulacio szimulacio = new Szimulacio();
 int MatrixMeret = 25;
 int korok = 10;
@@ -18,8 +18,8 @@ for (int i = 0; i < MatrixMeret; i++)
     }
 }
 
-nyulak.Add(new Nyul(kezdoHely, kezdoHely, '0'));
-nyulak.Add(new Nyul(kezdoHely, kezdoHely + 1, '0'));
+allatok.Add(new Nyul(kezdoHely, kezdoHely, '0'));
+allatok.Add(new Nyul(kezdoHely, kezdoHely + 1, '0'));
 
 matrix[kezdoHely, kezdoHely] = 'N';
 matrix[kezdoHely, kezdoHely + 1] = 'N';
@@ -29,7 +29,7 @@ Kiiras(matrix, MatrixMeret);
 for (int i = 0; i < korok; i++)
 {
     Thread.Sleep(1000);
-    szimulacio.Kor(matrix, nyulak);
+    szimulacio.Kor(matrix, allatok);
     Kiiras(matrix, MatrixMeret);
 }
 
