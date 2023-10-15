@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "EletJatek/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/EletJatek.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EletJatek.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "EletJatek/1.0.0": {
-      "type": "project",
-      "path": "../EletJatek/EletJatek.csproj",
-      "msbuildProject": "../EletJatek/EletJatek.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "EletJatek >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\domif\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\Program\\EletJatekConsole.csproj",
-      "projectName": "EletJatekConsole",
-      "projectPath": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\Program\\EletJatekConsole.csproj",
+      "projectUniqueName": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\EletJatek\\EletJatek.csproj",
+      "projectName": "EletJatek",
+      "projectPath": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\EletJatek\\EletJatek.csproj",
       "packagesPath": "C:\\Users\\domif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\Program\\obj\\",
+      "outputPath": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\EletJatek\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\domif\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,11 +33,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\EletJatek\\EletJatek.csproj": {
-              "projectPath": "C:\\Users\\domif\\Documents\\GitHub\\EletJatek\\EletJatek\\EletJatek\\EletJatek.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

@@ -1,83 +1,43 @@
-﻿using System.Numerics;
+﻿using System.Threading;
+using EletJatek;
 
-Mezo mezo = new Mezo();
-Nyul nyul = new Nyul();
-Roka roka = new Roka();
-
-MatriX.Kiiras();
-
-
-Console.ReadLine();
-class Mezo
+List<Nyul> nyulak = new List<Nyul>();
+Szimulacio szimulacio = new Szimulacio();
+int MatrixMeret = 25;
+int korok = 10;
+Console.WriteLine("Hány nyullal szeretné kezdeni a szimulációt?: ");
+int kezdonyulak = int.Parse(Console.ReadLine());
+for (int i = 0; i < kezdonyulak; i++)
 {
-    public static int Meret { get; private set; } = 10;
-    public static int[,] Fu { get; private set; } = new int[Meret, Meret];
-    public Mezo()
+    nyulak.Add(new Nyul(i, i));
+}
+char[,] matrix = new char[MatrixMeret, MatrixMeret];
+for (int i = 0; i < MatrixMeret; i++)
+{
+    for (int j = 0; j < MatrixMeret; j++)
     {
-        for (int x = 0; x < Meret; x++)
-        {
-            for (int y = 0; y < Meret; y++)
-            {
-                Fu[x, y] = 0;
-            }
-        }
+        matrix[i, j] = '0';
     }
 }
-class Allat
+Kiiras(matrix, MatrixMeret);
+for (int i = 0; i < korok; i++)
 {
-    public static int[,] Matrix { get; protected set; } = new int[Mezo.Meret, Mezo.Meret];
+    Thread.Sleep(1000);
+    szimulacio.Kor(matrix, nyulak);
+    Kiiras(matrix, MatrixMeret);
 }
-class Nyul : Allat
+
+// nyulak.Add(new Nyul(i, j));
+
+void Kiiras(char[,] matrix, int meret)
 {
-    readonly int meret = Mezo.Meret;
-    public Nyul()
+    Console.Clear();
+    for (int i = 0; i < meret; i++)
     {
-        Random random = new Random();
-        for (int x = 0; x < meret; x++)
+        for (int j = 0; j < meret; j++)
         {
-            for (int y = 0; y < meret; y++)
-            {
-                Matrix[x, y] = 0;
-            }
+            Console.Write(matrix[i, j]);
         }
-    }
-}
-class Roka : Allat
-{
-    readonly int meret = Mezo.Meret;
-    public Roka()
-    {
-        Random random = new Random();
-        for (int x = 0; x < meret; x++)
-        {
-            for (int y = 0; y < meret; y++)
-            {
-                Matrix[x, y] = 0;
-            }
-        }
-    }
-}
-class MatriX
-{
-    public static int[,] Matrix { get; private set; } = new int[Mezo.Meret, Mezo.Meret];
-    public static void Kiiras()
-    {
-        for (int x = 0; x < Mezo.Meret; x++)
-        {
-            for (int y = 0; y < Mezo.Meret; y++)
-            {
-                Matrix[x, y] = Mezo.Fu[x, y];
-                Matrix[x, y] = Nyul.Matrix[x, y];
-                Matrix[x, y] = Roka.Matrix[x, y];
-            }
-        }
-        for (int x = 0; x < Mezo.Meret; x++)
-        {
-            for (int y = 0; y < Mezo.Meret; y++)
-            {
-                Console.Write(Matrix[x, y]);
-            }
-            Console.WriteLine();
-        }
+        Console.WriteLine();
     }
 }
