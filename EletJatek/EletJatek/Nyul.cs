@@ -46,7 +46,7 @@
             {
                 return;
             }
-            if (matrix[UjPozX, UjPozY] == 'N')
+            if (matrix[UjPozX, UjPozY] == 'N' || matrix[UjPozX, UjPozY] == 'R')
             {
                 return;
             }
