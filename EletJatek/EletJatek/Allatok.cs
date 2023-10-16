@@ -8,9 +8,9 @@ namespace EletJatek
 {
     public abstract class Allatok
     {
-        static int Id = 0;
+        protected static int Id = 0;
         public bool Halott { get; set; }
-        public int mutato { get; init; }
+        public int Mutato { get; init; }
         public int PozX { get; set; }
         public int PozY { get; set; }
         public char FuErtek { get; set; }
@@ -18,9 +18,9 @@ namespace EletJatek
 
         protected static readonly Random random = new Random();
 
-        public Allatok(int x, int y, char fuertek)
+        protected Allatok(int x, int y, char fuertek)
         {
-            mutato = ++Id;
+            Mutato = ++Id;
             PozX = x;
             PozY = y;
             FuErtek = fuertek;

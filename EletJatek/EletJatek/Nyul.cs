@@ -4,6 +4,12 @@
     {
         public Nyul(int x, int y, char fuertek) : base(x, y, fuertek)
         {
+            Mutato = ++Id;
+            PozX = x;
+            PozY = y;
+            FuErtek = fuertek;
+            Ehseg = 3; //Éhség kezdőérték
+            Halott = false;
         }
 
         public override void Mozog(char[,] matrix)
@@ -46,7 +52,7 @@
             {
                 return;
             }
-            if (matrix[UjPozX, UjPozY] == 'N' || matrix[UjPozX, UjPozY] == 'R')
+            if (matrix[UjPozX, UjPozY] == 'N' || matrix[UjPozX, UjPozY] == 'R' || matrix[UjPozX, UjPozY] == '0' || matrix[UjPozX, UjPozY] == '1')
             {
                 return;
             }
@@ -69,7 +75,7 @@
                     break;
                 case '2':
                     Ehseg += 2;
-                    FuErtek = '0';
+                    FuErtek = '1';
                     break;
                 default:
                     break;

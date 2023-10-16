@@ -3,11 +3,12 @@ using EletJatek;
 
 List<Allatok> allatok = new List<Allatok>();
 Szimulacio szimulacio = new Szimulacio();
-int MatrixMeret = 25;
+int MatrixMeret = 10;
 int korok = 20;
 char[,] matrix = new char[MatrixMeret, MatrixMeret];
 Random r = new Random();
-int kezdoHely = r.Next(MatrixMeret / 2, MatrixMeret - 1);
+int kezdoHelyNyul = r.Next(MatrixMeret / 2, MatrixMeret - 1);
+int kezdoHelyRoka = r.Next(0, MatrixMeret - 1);
 
 
 for (int i = 0; i < MatrixMeret; i++)
@@ -18,13 +19,15 @@ for (int i = 0; i < MatrixMeret; i++)
     }
 }
 
-allatok.Add(new Nyul(kezdoHely, kezdoHely, '0'));
-allatok.Add(new Nyul(kezdoHely, kezdoHely + 1, '0'));
-allatok.Add(new Roka(kezdoHely, kezdoHely, '0'));
-allatok.Add(new Roka(kezdoHely, kezdoHely + 1, '0'));
+allatok.Add(new Nyul(kezdoHelyNyul, kezdoHelyNyul, '0'));
+allatok.Add(new Nyul(kezdoHelyNyul, kezdoHelyNyul + 1, '0'));
+allatok.Add(new Roka(kezdoHelyRoka, kezdoHelyRoka, '0', '0'));
+allatok.Add(new Roka(kezdoHelyRoka, kezdoHelyRoka + 1, '0', '0'));
 
-matrix[kezdoHely, kezdoHely] = 'N';
-matrix[kezdoHely, kezdoHely + 1] = 'N';
+matrix[kezdoHelyNyul, kezdoHelyNyul] = 'N';
+matrix[kezdoHelyNyul, kezdoHelyNyul + 1] = 'N';
+matrix[kezdoHelyRoka, kezdoHelyRoka] = 'R';
+matrix[kezdoHelyRoka, kezdoHelyRoka + 1] = 'R';
 
 Kiiras(matrix, MatrixMeret);
 

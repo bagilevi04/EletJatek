@@ -14,9 +14,9 @@ namespace EletJatek
 
             foreach (var allat in allatok)
             {
+                allat.Ehezik();
                 allat.Mozog(matrix);
                 allat.Eszik(matrix);
-                allat.Ehezik();
                 if (allat.Halott)
                 {
                     halottallat.Add(allat);
