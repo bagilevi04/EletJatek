@@ -14,7 +14,7 @@ namespace EletJatek
             PozX = x;
             PozY = y;
             FuErtek = fuertek;
-            Jollakottsag = 10; //Éhség kezdőérték
+            Jollakottsag = 5; //Éhség kezdőérték
             Halott = false;
         }
 
