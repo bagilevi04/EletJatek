@@ -14,23 +14,28 @@ namespace EletJatek
             PozX = x;
             PozY = y;
             FuErtek = fuertek;
-            Ehseg = 10; //Éhség kezdőérték
+            Jollakottsag = 10; //Éhség kezdőérték
             Halott = false;
         }
 
         public override void Eszik(char[,] matrix, List<Allatok> allat)
         {
-            switch (FuErtek)
+            int maxjollakottsag = 10;
+            if (Jollakottsag != maxjollakottsag)
             {
-                case 'N':
-                    Ehseg += 3;
-                    var nyul = allat.Find(x => x.PozX == this.PozX && x.PozY == this.PozY && x is Nyul);
-                    nyul.Meghalt(matrix, allat);
-                    FuErtek = nyul.FuErtek;
-                    break;
-                default:
-                    break;
+                switch (FuErtek)
+                {
+                    case 'N':
+                        Jollakottsag += 3;
+                        var nyul = allat.Find(x => x.PozX == this.PozX && x.PozY == this.PozY && x is Nyul);
+                        nyul.Meghalt(matrix, allat);
+                        FuErtek = nyul.FuErtek;
+                        break;
+                    default:
+                        break;
+                }
             }
+            
         }
 
         public override void Mozog(char[,] matrix)

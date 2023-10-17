@@ -14,7 +14,7 @@ namespace EletJatek
         public int PozX { get; set; }
         public int PozY { get; set; }
         public char FuErtek { get; set; }
-        public int Ehseg { get; set; }
+        public int Jollakottsag { get; set; }
 
         protected static readonly Random random = new Random();
 
@@ -24,14 +24,14 @@ namespace EletJatek
             PozX = x;
             PozY = y;
             FuErtek = fuertek;
-            Ehseg = 3; //Éhség kezdőérték
+            Jollakottsag = 3; //Éhség kezdőérték
             Halott = false;
         }
 
         public void Ehezik()
         {
-            Ehseg--;
-            if (Ehseg == 0)
+            Jollakottsag--;
+            if (Jollakottsag == 0)
             {
                 Halott = true;
             }

@@ -8,7 +8,7 @@
             PozX = x;
             PozY = y;
             FuErtek = fuertek;
-            Ehseg = 3; //Éhség kezdőérték
+            Jollakottsag = 3; //Éhség kezdőérték
             Halott = false;
         }
 
@@ -65,21 +65,26 @@
 
         public override void Eszik(char[,] matrix, List<Allatok> _)
         {
-            switch (FuErtek)
+            int maxjollakottasg = 5;
+            if (Jollakottsag != maxjollakottasg)
             {
-                case '0':
-                    return;
-                case '1':
-                    Ehseg++;
-                    FuErtek = '0';
-                    break;
-                case '2':
-                    Ehseg += 2;
-                    FuErtek = '1';
-                    break;
-                default:
-                    break;
+                switch (FuErtek)
+                {
+                    case '0':
+                        return;
+                    case '1':
+                        Jollakottsag++;
+                        FuErtek = '0';
+                        break;
+                    case '2':
+                        Jollakottsag += 2;
+                        FuErtek = '1';
+                        break;
+                    default:
+                        break;
+                }
             }
+            
         }
 
         public override void Szaporodik(char[,] matrix, List<Allatok> allat)
