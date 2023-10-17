@@ -82,9 +82,80 @@
             }
         }
 
-        public override void Szaporodik(char[,] matrix, List<Allatok> allat, int meret)
+        public override void Szaporodik(char[,] matrix, List<Allatok> allat)
         {
-            
+            if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] == 'N')
+            {
+                if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
+                {
+                    allat.Add(new Nyul(PozX - 1, PozY, FuErtek));
+                }
+                else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
+                {
+                    allat.Add(new Nyul(PozX, PozY - 1, FuErtek));
+                }
+                else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
+                {
+                    allat.Add(new Nyul(PozX, PozY + 1, FuErtek));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] == 'N')
+            {
+                if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
+                {
+                    allat.Add(new Nyul(PozX - 1, PozY, FuErtek));
+                }
+                else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
+                {
+                    allat.Add(new Nyul(PozX, PozY - 1, FuErtek));
+                }
+                else if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
+                {
+                    allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (PozX - 1 > 0 && matrix[PozX - 1, PozY] == 'N')
+            {
+                if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
+                {
+                    allat.Add(new Nyul(PozX, PozY + 1, FuErtek));
+                }
+                else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
+                {
+                    allat.Add(new Nyul(PozX, PozY - 1, FuErtek));
+                }
+                else if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
+                {
+                    allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (PozY - 1 > 0 && matrix[PozX, PozY - 1] == 'N')
+            {
+                if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
+                {
+                    allat.Add(new Nyul(PozX - 1, PozY, FuErtek));
+                }
+                else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
+                {
+                    allat.Add(new Nyul(PozX, PozY + 1, FuErtek));
+                }
+                else if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
+                {
+                    allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
+                }
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace EletJatek
                 allat.Ehezik();
                 allat.Mozog(matrix);
                 allat.Eszik(matrix, osszesAllatok);
-                allat.Szaporodik(matrix, osszesAllatok, matrix.GetLength(0));
+                allat.Szaporodik(matrix, osszesAllatok);
                 if (allat.Halott)
                 {
                     halottallat.Add(allat);
@@ -51,7 +51,7 @@ namespace EletJatek
         public void Kor(char[,] matrix, List<Allatok> allatok)
         {
             AllatokAKorben(matrix, allatok.Where(x => x is Nyul).ToList(), allatok);
-            AllatokAKorben(matrix, allatok.Where(x => x is Roka).ToList(), allatok);
+            AllatokAKorben(matrix, allatok.Where(x => x is Nyul).ToList(), allatok);
             Fu(matrix);
         }
     }
