@@ -8,7 +8,6 @@ namespace EletJatek
 {
     public class Roka : Allatok
     {
-        public char NyulErtek { get; set; }
         public Roka(int x, int y, char fuertek, char nyul) : base(x, y, fuertek)
         {
             Mutato = ++Id;
@@ -17,16 +16,17 @@ namespace EletJatek
             FuErtek = fuertek;
             Ehseg = 10; //Éhség kezdőérték
             Halott = false;
-            NyulErtek = nyul;
         }
 
-        public override void Eszik(char[,] matrix)
+        public override void Eszik(char[,] matrix, List<Allatok> allat)
         {
-            switch (NyulErtek)
+            switch (FuErtek)
             {
                 case 'N':
                     Ehseg += 3;
-
+                    var nyul = allat.Find(x => x.PozX == this.PozX && x.PozY == this.PozY && x is Nyul);
+                    nyul.Meghalt(matrix, allat);
+                    FuErtek = nyul.FuErtek;
                     break;
                 default:
                     break;
@@ -38,63 +38,27 @@ namespace EletJatek
             int meret = matrix.GetLength(0);
             int UjPozX = PozX;
             int UjPozY = PozY;
-            int mozog = random.Next(1, 9);
+            
 
-            if (PozX++ < meret && PozX++ == 'N')
+            if (PozX + 1 < meret && matrix[PozX + 1, PozY] == 'N')
             {
                 UjPozX++;
             }
-            else if (PozX-- >= 0 && PozX-- == 'N')
+            else if (PozX - 1 >= 0 && matrix[PozX - 1, PozY] == 'N')
             {
                 UjPozX--;
             }
-            else if (PozY++ < meret && PozY++ == 'N')
-            {
-                UjPozY++;
-            }
-            else if (PozY-- >= 0 && PozY-- == 'N') 
+            else if (PozY - 1 >= 0 && matrix[PozX, PozY - 1] == 'N') 
             {
                 UjPozY--;
             }
-            else if (PozX + 2 < meret && PozX + 2 == 'N')
-            {
-                UjPozX += 2;
-            }
-            else if (PozX - 2 >= 0 && PozX - 2 == 'N')
-            {
-                UjPozX -= 2;
-            }
-            else if (PozY + 2 < meret && PozY + 2 == 'N')
-            {
-                UjPozY += 2;
-            }
-            else if (PozY - 2 >= 0 && PozY - 2 == 'N')
-            {
-                UjPozY -= 2;
-            }
-            else if (PozX++ < meret && PozY++ < meret && matrix[PozX++, PozY++] == 'N')
+            else if (PozY + 1 < meret && matrix[PozX, PozY+1] == 'N')
             {
                 UjPozX++;
-                UjPozY++;
-            }
-            else if (PozX++ < meret && PozY-- >= 0 && matrix[PozX++, PozY--] == 'N')
-            {
-                UjPozX++;
-                UjPozY--;
-            }
-            else if (PozX-- >= 0 && PozY++ < meret && matrix[PozX--, PozY++] == 'N')
-            {
-                UjPozX--;
-                UjPozY++;
-            }
-            else if (PozX-- >= 0 && PozY-- >= 0 && matrix[PozX--, PozY--] == 'N')
-            {
-                UjPozX--;
-                UjPozY--;
             }
             else
             {
-                switch (mozog)
+                switch (random.Next(1, 5))
                 {
                     case 1:
                         if (PozX + 2 < meret)
@@ -103,15 +67,15 @@ namespace EletJatek
                         }
                         break;
                     case 2:
-                        if (PozX - 2 >= 0)
-                        {
-                            UjPozX -= 2;
-                        }
-                        break;
-                    case 3:
                         if (PozY + 2 < meret)
                         {
                             UjPozY += 2;
+                        }
+                        break;
+                    case 3:
+                        if (PozX - 2 >= 0)
+                        {
+                            UjPozX -= 2;
                         }
                         break;
                     case 4:
@@ -120,38 +84,11 @@ namespace EletJatek
                             UjPozY -= 2;
                         }
                         break;
-                    case 5:
-                        if (PozX++ < meret && PozY++ < meret)
-                        {
-                            UjPozX++;
-                            UjPozY++;
-                        }
-                        break;
-                    case 6:
-                        if (PozX++ < meret && PozY-- >= 0)
-                        {
-                            UjPozX++;
-                            UjPozY--;
-                        }
-                        break;
-                    case 7:
-                        if (PozX-- >= 0 && PozY++ < meret)
-                        {
-                            UjPozX--;
-                            UjPozY++;
-                        }
-                        break;
-                    case 8:
-                        if (PozX-- >= 0 && PozY-- >= 0)
-                        {
-                            UjPozX--;
-                            UjPozY--;
-                        }
-                        break;
                     default:
                         break;
                 }
             }
+
             if (UjPozX == PozX && UjPozY == PozY)
             {
                 return;
@@ -165,8 +102,15 @@ namespace EletJatek
             PozX = UjPozX;
             PozY = UjPozY;
             FuErtek = matrix[UjPozX, UjPozY];
-            NyulErtek = matrix[UjPozX, UjPozY];
             matrix[UjPozX, UjPozY] = 'R';
+        }
+
+        public override void Szaporodik(char[,] matrix)
+        {
+            if (PozX == 'R')
+            {
+
+            }
         }
     }
 }

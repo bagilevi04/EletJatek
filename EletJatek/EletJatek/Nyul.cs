@@ -63,7 +63,7 @@
             matrix[UjPozX, UjPozY] = 'N';
         }
 
-        public override void Eszik(char[,] matrix)
+        public override void Eszik(char[,] matrix, List<Allatok> _)
         {
             switch (FuErtek)
             {
@@ -76,6 +76,28 @@
                 case '2':
                     Ehseg += 2;
                     FuErtek = '1';
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public override void Szaporodik(char[,] matrix)
+        {
+            if (PozX++ != 'N' && PozX-- != 'N' && PozY++ != 'N' && PozY-- != 'N')
+            {
+                return;
+            }
+            int szuletik = random.Next(1,5);
+            switch (szuletik)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
                     break;
                 default:
                     break;
