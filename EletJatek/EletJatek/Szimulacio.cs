@@ -31,7 +31,6 @@ namespace EletJatek
         {
             List<Allatok> halottallat = new List<Allatok>();
 
-
             foreach (var allat in mozgoAllatok)
             {
                 allat.Ehezik();

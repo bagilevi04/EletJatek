@@ -82,26 +82,9 @@
             }
         }
 
-        public override void Szaporodik(char[,] matrix)
+        public override void Szaporodik(char[,] matrix, List<Allatok> allat, int meret)
         {
-            if (PozX++ != 'N' && PozX-- != 'N' && PozY++ != 'N' && PozY-- != 'N')
-            {
-                return;
-            }
-            int szuletik = random.Next(1,5);
-            switch (szuletik)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                default:
-                    break;
-            }
+            
         }
     }
 }

@@ -7,8 +7,8 @@ int MatrixMeret = 10;
 int korok = 20;
 char[,] matrix = new char[MatrixMeret, MatrixMeret];
 Random r = new Random();
-int kezdoHelyNyul = 4;
-int kezdoHelyRoka = 5;
+int kezdoHelyNyul = 2;
+int kezdoHelyRoka = 7;
 
 
 for (int i = 0; i < MatrixMeret; i++)
