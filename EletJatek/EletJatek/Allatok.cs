@@ -50,6 +50,6 @@ namespace EletJatek
         public abstract void Eszik(char[,] matrix, List<Allatok> allat);
 
         public abstract void Mozog(char[,] matrix);
-        public abstract void Szaporodik(char[,] matrix);
+        public abstract void Szaporodik(char[,] matrix, List<Allatok> allat, int meret);
     }
 }

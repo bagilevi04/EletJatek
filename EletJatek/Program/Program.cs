@@ -21,8 +21,8 @@ for (int i = 0; i < MatrixMeret; i++)
 
 allatok.Add(new Nyul(kezdoHelyNyul, kezdoHelyNyul, '0'));
 allatok.Add(new Nyul(kezdoHelyNyul, kezdoHelyNyul + 1, '0'));
-allatok.Add(new Roka(kezdoHelyRoka, kezdoHelyRoka, '0', '0'));
-allatok.Add(new Roka(kezdoHelyRoka, kezdoHelyRoka + 1, '0', '0'));
+allatok.Add(new Roka(kezdoHelyRoka, kezdoHelyRoka, '0'));
+allatok.Add(new Roka(kezdoHelyRoka, kezdoHelyRoka + 1, '0'));
 
 matrix[kezdoHelyNyul, kezdoHelyNyul] = 'N';
 matrix[kezdoHelyNyul, kezdoHelyNyul + 1] = 'N';

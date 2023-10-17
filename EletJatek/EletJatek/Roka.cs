@@ -8,7 +8,7 @@ namespace EletJatek
 {
     public class Roka : Allatok
     {
-        public Roka(int x, int y, char fuertek, char nyul) : base(x, y, fuertek)
+        public Roka(int x, int y, char fuertek) : base(x, y, fuertek)
         {
             Mutato = ++Id;
             PozX = x;
@@ -105,11 +105,79 @@ namespace EletJatek
             matrix[UjPozX, UjPozY] = 'R';
         }
 
-        public override void Szaporodik(char[,] matrix)
+        public override void Szaporodik(char[,] matrix, List<Allatok> allat, int meret)
         {
-            if (PozX == 'R')
+            if (matrix[PozX + 1, PozY] == 'R')
             {
-
+                if (matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
+                {
+                    allat.Add(new Roka(PozX - 1, PozY, FuErtek));
+                }
+                else if (matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
+                {
+                    allat.Add(new Roka(PozX, PozY - 1, FuErtek));
+                }
+                else if (matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
+                {
+                    allat.Add(new Roka(PozX, PozY + 1, FuErtek));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (matrix[PozX, PozY + 1] == 'R')
+            {
+                if (matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
+                {
+                    allat.Add(new Roka(PozX - 1, PozY, FuErtek));
+                }
+                else if (matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
+                {
+                    allat.Add(new Roka(PozX, PozY - 1, FuErtek));
+                }
+                else if (matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
+                {
+                    allat.Add(new Roka(PozX + 1, PozY, FuErtek));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (matrix[PozX - 1, PozY] == 'R')
+            {
+                if (matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
+                {
+                    allat.Add(new Roka(PozX, PozY + 1, FuErtek));
+                }
+                else if (matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
+                {
+                    allat.Add(new Roka(PozX, PozY - 1, FuErtek));
+                }
+                else if (matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
+                {
+                    allat.Add(new Roka(PozX + 1, PozY, FuErtek));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (matrix[PozX, PozY - 1] == 'R')
+            {
+                if (matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
+                {
+                    allat.Add(new Roka(PozX - 1, PozY, FuErtek));
+                }
+                else if (matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
+                {
+                    allat.Add(new Roka(PozX, PozY + 1, FuErtek));
+                }
+                else if (matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
+                {
+                    allat.Add(new Roka(PozX + 1, PozY, FuErtek));
+                }
             }
         }
     }

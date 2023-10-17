@@ -37,7 +37,7 @@ namespace EletJatek
                 allat.Ehezik();
                 allat.Mozog(matrix);
                 allat.Eszik(matrix, osszesAllatok);
-                allat.Szaporodik(matrix);
+                allat.Szaporodik(matrix, osszesAllatok, matrix.GetLength(0));
                 if (allat.Halott)
                 {
                     halottallat.Add(allat);
