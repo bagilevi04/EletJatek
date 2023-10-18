@@ -14,7 +14,7 @@ namespace EletJatek
             PozX = x;
             PozY = y;
             FuErtek = fuertek;
-            Jollakottsag = 5; //Éhség kezdőérték
+            Jollakottsag = 10; //Éhség kezdőérték
             Halott = false;
         }
 
@@ -131,7 +131,7 @@ namespace EletJatek
                     return;
                 }
             }
-            if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] == 'R')
+            else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] == 'R')
             {
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {
@@ -150,7 +150,7 @@ namespace EletJatek
                     return;
                 }
             }
-            if (PozX - 1 > 0 && matrix[PozX - 1, PozY] == 'R')
+            else if (PozX - 1 > 0 && matrix[PozX - 1, PozY] == 'R')
             {
                 if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
                 {
@@ -169,7 +169,7 @@ namespace EletJatek
                     return;
                 }
             }
-            if (PozY - 1 > 0 && matrix[PozX, PozY - 1] == 'R')
+            else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] == 'R')
             {
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {

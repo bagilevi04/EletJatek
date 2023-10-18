@@ -8,7 +8,7 @@
             PozX = x;
             PozY = y;
             FuErtek = fuertek;
-            Jollakottsag = 3; //Éhség kezdőérték
+            Jollakottsag = 5; //Éhség kezdőérték
             Halott = false;
         }
 
@@ -108,7 +108,7 @@
                     return;
                 }
             }
-            if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] == 'N')
+            else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] == 'N')
             {
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {
@@ -127,7 +127,7 @@
                     return;
                 }
             }
-            if (PozX - 1 > 0 && matrix[PozX - 1, PozY] == 'N')
+            else if (PozX - 1 > 0 && matrix[PozX - 1, PozY] == 'N')
             {
                 if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
                 {
@@ -146,7 +146,7 @@
                     return;
                 }
             }
-            if (PozY - 1 > 0 && matrix[PozX, PozY - 1] == 'N')
+            else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] == 'N')
             {
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {

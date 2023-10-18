@@ -34,9 +34,9 @@ namespace EletJatek
             foreach (var allat in mozgoAllatok)
             {
                 allat.Ehezik();
+                allat.Szaporodik(matrix, osszesAllatok);
                 allat.Mozog(matrix);
                 allat.Eszik(matrix, osszesAllatok);
-                allat.Szaporodik(matrix, osszesAllatok);
                 if (allat.Halott)
                 {
                     halottallat.Add(allat);
@@ -51,7 +51,7 @@ namespace EletJatek
         public void Kor(char[,] matrix, List<Allatok> allatok)
         {
             AllatokAKorben(matrix, allatok.Where(x => x is Nyul).ToList(), allatok);
-            AllatokAKorben(matrix, allatok.Where(x => x is Nyul).ToList(), allatok);
+            AllatokAKorben(matrix, allatok.Where(x => x is Roka).ToList(), allatok);
             Fu(matrix);
         }
     }
