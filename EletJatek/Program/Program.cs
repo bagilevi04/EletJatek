@@ -64,7 +64,7 @@ void Kiiras(char[,] matrix, int meret)
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 case 'R':
-                    Console.WriteLine(" ", Console.BackgroundColor = ConsoleColor.Red);
+                    Console.Write(" ", Console.BackgroundColor = ConsoleColor.Red);
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 default:
