@@ -48,23 +48,23 @@ void Kiiras(char[,] matrix, int meret)
             switch (matrix[i, j])
             {
                 case '0':
-                    Console.Write(" ", Console.BackgroundColor = ConsoleColor.DarkCyan);
+                    Console.Write("0", Console.BackgroundColor = ConsoleColor.DarkCyan);
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 case '1':
-                    Console.Write(" ", Console.BackgroundColor = ConsoleColor.DarkGreen);
+                    Console.Write("1", Console.BackgroundColor = ConsoleColor.DarkGreen);
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 case '2':
-                    Console.Write(" ", Console.BackgroundColor = ConsoleColor.Green);
+                    Console.Write("2", Console.BackgroundColor = ConsoleColor.Green);
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 case 'N':
-                    Console.Write(" ", Console.BackgroundColor = ConsoleColor.Gray);
+                    Console.Write("N", Console.BackgroundColor = ConsoleColor.Gray);
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 case 'R':
-                    Console.Write(" ", Console.BackgroundColor = ConsoleColor.Red);
+                    Console.Write("R", Console.BackgroundColor = ConsoleColor.Red);
                     Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 default:
