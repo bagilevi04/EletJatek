@@ -31,12 +31,14 @@ matrix[kezdoHelyRoka, kezdoHelyRoka + 1] = 'R';
 
 Kiiras(matrix, MatrixMeret);
 
-for (int i = 0; i < korok; i++)
+while (allatok.Where(x => x is Nyul).ToList().Count != 0 && allatok.Where(x => x is Roka).ToList().Count != 0)
 {
     Thread.Sleep(100);
     szimulacio.Kor(matrix, allatok);
     Kiiras(matrix, MatrixMeret);
 }
+
+    
 
 void Kiiras(char[,] matrix, int meret)
 {
