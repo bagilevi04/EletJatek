@@ -105,12 +105,13 @@ namespace EletJatek
             {
                 return;
             }
-            if (UjPozX < 0 && UjPozX >= meret && UjPozY < 0 && UjPozY >= meret && matrix[UjPozX, UjPozY] == 'R')
+            if (UjPozX < 0 || UjPozX >= meret || UjPozY < 0 || UjPozY >= meret || matrix[UjPozX, UjPozY] == 'R')
             {
                 return;
             }
 
             matrix[PozX, PozY] = FuErtek;
+            
             PozX = UjPozX;
             PozY = UjPozY;
             FuErtek = matrix[UjPozX, UjPozY];
