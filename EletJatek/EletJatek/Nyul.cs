@@ -70,8 +70,6 @@
             {
                 switch (FuErtek)
                 {
-                    case '0':
-                        return;
                     case '1':
                         Jollakottsag++;
                         FuErtek = '0';
