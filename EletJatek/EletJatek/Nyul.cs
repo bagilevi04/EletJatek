@@ -160,6 +160,10 @@
                 {
                     allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
                 }
+                else
+                {
+                    return;
+                }
             }
         }
     }
