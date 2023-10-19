@@ -3,27 +3,41 @@
 Maga a program arra a szabályrendszerre épül, hogy ha az egyik entitás megszűnik létezni akkor **leáll** a szimuláció. 
 A program **C#** programozási nyelvben készült, törekszik a **Clean Code** elveire, **objektum orientált**. 
 
+## Használati útmutató
+
+- A program indítását követően a szimuláció automatikusan elindul, addig tart ameddig minden állat meg nem hal.
+- A kiírásnál látható színek és karakterek:
+    - Fű:
+        - 0 - ciánkék, 1 - sötétzöld, 2 - világoszöld
+    -Róka:
+        - R - vörös
+    - Nyúl: 
+        - N - szürke
+
 ## Szimuláció
 
-**Osztályokra** alapul.
+### Osztályokra alapul.
 
 - Állatok (ősoszály)
-    1. Róka (leszármazott)
-    2. Nyúl (leszármazott)
+    - Róka (leszármazott)
+    - Nyúl (leszármazott)
 - Szimuláció
 
 ## Felhasznált metódusok:
 
 - Szimuláció osztályban használt metódusok:
-    1. `Fu()` - feltölti a mátrixot, mezőként szolgál, frissíti a mátrixban lévő értékeket.
-    2. `AllatokAKorben()` - Lefuttatja az összes állatokkal kapcsolatos metódusokat.
+    - `Fu()` - feltölti a mátrixot, mezőként szolgál, frissíti a mátrixban lévő értékeket.
+    - `AllatokAKorben()` - Lefuttatja az összes állatokkal kapcsolatos metódusokat.
 - Állatok osztályban használt metódusok:
-    1. `Ehezik()` - Körönként csökkenti a jóllakottságát az állatoknak és kezeli, hogyha éhen hal az állat.
-    2. `Bekovetkezette()` - Egy segéd metódus, véletlenszerű százalék alapon visszaad egy logikai értéket.
-    3. `Meghalt()` - A meghalt állat helyén visszaad egy fűértéket és kiszedi az állatokat kezelő listából a halott állatot.
-    4. > Absztrakt metódusok: Eszik(), Mozog(), Szaporodik().
+    - `Ehezik()` - Körönként csökkenti a jóllakottságát az állatoknak és kezeli, hogyha éhen hal az állat.
+    - `Bekovetkezette()` - Egy segéd metódus, véletlenszerű százalék alapon visszaad egy logikai értéket.
+    - `Meghalt()` - A meghalt állat helyén visszaad egy fűértéket és kiszedi az állatokat kezelő listából a halott állatot.
+    - > Absztrakt metódusok: Eszik(), Mozog(), Szaporodik().
 - Róka osztályban használt metódusok:
     - `Eszik()` - Abban az esetben, hogyha az a mátrix mezőn amire át akar lépni, ha tartózkodik rajta nyúl, a nyúl meghal, a fűértékét átveszi és növeli a jóllakottságát hárommal.
     - `Mozog()` - Abban az esetben ha valamelyik szomszédja nyúl, abba az irányba fog mozogni, ellenkező esetben kettőt lép egy véletlenszerű irányba ha ezen a véletlenszerű irányban tartózkodik másik róka, akkor nem lép.
-    - `Szaporodik()` - Meghívjuk a Bekovetkezette() metódust, abban az esetben, hogyha bekövetkezik, akkor nem történik semmi, ellenkező esetben megnézi, hogy a szoszédai valmelyik irányban róka e, ha róka, akkor megnézi, hogy valamelyik szomszédos mezője üres-e, ha üres akkor inicializál még egy rókát és az hozzáadódik a mátrixhoz.
-    
+    - `Szaporodik()` - Meghívjuk a Bekovetkezette() metódust, abban az esetben, hogyha bekövetkezik, akkor nem történik semmi, ellenkező esetben megnézi, hogy a szomszédai valmelyik irányban róka e, ha róka, akkor megnézi, hogy valamelyik szomszédos mezője üres-e, ha üres akkor inicializál még egy rókát és az hozzáadódik a mátrixhoz.
+- Nyúl osztályban használt metódusok: 
+    - `Eszik()` - Hogyha átlép egy másik mezőre és a fű értéke 1, akkor a fűérték lenullázódik és továbblép, mindemellett megnő a jóllakottsági szintje egyel, ha a fű értéke 2 akkor a jóllakottsága kettővel nő és a fű értéke felveszi az egyes értéket, más esetben nem eszik a nyúl.
+    - `Mozog()` - Véletlenszerűen egy szomszédos mezőre lép.
+    - `Szaporodik()` - Meghívjuk a Bekovetkezette() metódust, abban az esetben, hogyha bekövetkezik, akkor nem történik semmi, ellenkező esetben megnézi, hogy a szomszédai valmelyik irányban nyúl-e, ha nyúl, akkor megnézi, hogy valamelyik szomszédos mezője üres-e, ha üres akkor inicializál még egy nyulat és az hozzáadódik a mátrixhoz.
