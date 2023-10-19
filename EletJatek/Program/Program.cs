@@ -8,7 +8,7 @@ int korok = 30;
 char[,] matrix = new char[MatrixMeret, MatrixMeret];
 Random r = new Random();
 int kezdoHelyNyul = r.Next(MatrixMeret / 2, MatrixMeret);
-int kezdoHelyRoka = r.Next(0, MatrixMeret / 2);
+int kezdoHelyRoka = r.Next(1, MatrixMeret / 2);
 
 
 for (int i = 0; i < MatrixMeret; i++)

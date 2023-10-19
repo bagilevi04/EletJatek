@@ -39,12 +39,8 @@ namespace EletJatek
 
         public void Meghalt(char[,] matrix, List<Allatok> allatok)
         {
-            if (Halott)
-            {
-                allatok.Remove(this);
-                matrix[PozX, PozY] = FuErtek;
-            }
-
+            matrix[PozX, PozY] = FuErtek;
+            allatok.Remove(this);
         }
 
         public abstract void Eszik(char[,] matrix, List<Allatok> allat);
