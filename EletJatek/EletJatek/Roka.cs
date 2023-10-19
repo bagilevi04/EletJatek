@@ -28,8 +28,15 @@ namespace EletJatek
                     case 'N':
                         Jollakottsag += 3;
                         var nyul = allat.Find(x => this.PozX == x.PozX && this.PozY == x.PozY && x is Nyul);
-                        nyul.Meghalt(matrix, allat);
-                        FuErtek = nyul.FuErtek;
+                        if (nyul is null)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            nyul.Meghalt(matrix, allat);
+                            FuErtek = nyul.FuErtek;
+                        }
                         break;
                     default:
                         break;
@@ -98,7 +105,7 @@ namespace EletJatek
             {
                 return;
             }
-            if (matrix[UjPozX, UjPozY] == 'R')
+            if (UjPozX < 0 && UjPozX >= meret && UjPozY < 0 && UjPozY >= meret && matrix[UjPozX, UjPozY] == 'R')
             {
                 return;
             }
