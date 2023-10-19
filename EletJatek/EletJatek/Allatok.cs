@@ -8,7 +8,7 @@ namespace EletJatek
 {
     public abstract class Allatok
     {
-        protected static int Id = 0;
+        static int Id = 0;
         public bool Halott { get; set; }
         public int Mutato { get; init; }
         public int PozX { get; set; }
@@ -16,8 +16,9 @@ namespace EletJatek
         public char FuErtek { get; set; }
         public int Jollakottsag { get; set; }
 
-        protected static readonly Random random = new Random();
+        private static readonly Random random = new Random();
 
+        protected int KovPoz => random.Next(1, 5);
         protected Allatok(int x, int y, char fuertek)
         {
             Mutato = ++Id;
@@ -35,6 +36,11 @@ namespace EletJatek
             {
                 Halott = true;
             }
+        }
+
+        protected bool Bekovetkezette(int szazalek)
+        {
+            return random.Next(0, 100) < szazalek;
         }
 
         public void Meghalt(char[,] matrix, List<Allatok> allatok)

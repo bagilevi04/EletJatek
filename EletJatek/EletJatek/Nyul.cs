@@ -4,12 +4,7 @@
     {
         public Nyul(int x, int y, char fuertek) : base(x, y, fuertek)
         {
-            Mutato = ++Id;
-            PozX = x;
-            PozY = y;
-            FuErtek = fuertek;
             Jollakottsag = 5; //Éhség kezdőérték
-            Halott = false;
         }
 
         public override void Mozog(char[,] matrix)
@@ -17,9 +12,8 @@
             int meret = matrix.GetLength(0);
             int UjPozX = PozX;
             int UjPozY = PozY;
-            int mozog = random.Next(1, 5);
             
-            switch (mozog)
+            switch (KovPoz)
             {
                 case 1:
                     if (PozX + 1 < meret)
@@ -87,23 +81,23 @@
 
         public override void Szaporodik(char[,] matrix, List<Allatok> allat)
         {
+            if (!Bekovetkezette(25)) { return; }
             if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] == 'N')
             {
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {
                     allat.Add(new Nyul(PozX - 1, PozY, FuErtek));
+                    matrix[PozX - 1, PozY] = 'N';
                 }
                 else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
                 {
                     allat.Add(new Nyul(PozX, PozY - 1, FuErtek));
+                    matrix[PozX, PozY - 1] = 'N';
                 }
                 else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
                 {
                     allat.Add(new Nyul(PozX, PozY + 1, FuErtek));
-                }
-                else
-                {
-                    return;
+                    matrix[PozX, PozY + 1] = 'N';
                 }
             }
             else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] == 'N')
@@ -111,18 +105,17 @@
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {
                     allat.Add(new Nyul(PozX - 1, PozY, FuErtek));
+                    matrix[PozX - 1, PozY] = 'N';
                 }
                 else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
                 {
                     allat.Add(new Nyul(PozX, PozY - 1, FuErtek));
+                    matrix[PozX, PozY - 1] = 'N';
                 }
                 else if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
                 {
                     allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
-                }
-                else
-                {
-                    return;
+                    matrix[PozX + 1, PozY] = 'N';
                 }
             }
             else if (PozX - 1 > 0 && matrix[PozX - 1, PozY] == 'N')
@@ -130,18 +123,17 @@
                 if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
                 {
                     allat.Add(new Nyul(PozX, PozY + 1, FuErtek));
+                    matrix[PozX, PozY + 1] = 'N';
                 }
                 else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] != 'R' && matrix[PozX, PozY - 1] != 'N')
                 {
                     allat.Add(new Nyul(PozX, PozY - 1, FuErtek));
+                    matrix[PozX, PozY -1] = 'N';
                 }
                 else if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
                 {
                     allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
-                }
-                else
-                {
-                    return;
+                    matrix[PozX + 1, PozY] = 'N';
                 }
             }
             else if (PozY - 1 > 0 && matrix[PozX, PozY - 1] == 'N')
@@ -149,18 +141,17 @@
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
                 {
                     allat.Add(new Nyul(PozX - 1, PozY, FuErtek));
+                    matrix[PozX - 1, PozY] = 'N';
                 }
                 else if (PozY + 1 < matrix.GetLength(0) && matrix[PozX, PozY + 1] != 'R' && matrix[PozX, PozY + 1] != 'N')
                 {
                     allat.Add(new Nyul(PozX, PozY + 1, FuErtek));
+                    matrix[PozX, PozY + 1] = 'N';
                 }
                 else if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] != 'R' && matrix[PozX + 1, PozY] != 'N')
                 {
                     allat.Add(new Nyul(PozX + 1, PozY, FuErtek));
-                }
-                else
-                {
-                    return;
+                    matrix[PozX + 1, PozY] = 'N';
                 }
             }
         }

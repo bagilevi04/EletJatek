@@ -4,7 +4,7 @@ using EletJatek;
 List<Allatok> allatok = new List<Allatok>();
 Szimulacio szimulacio = new Szimulacio();
 int MatrixMeret = 25;
-int korok = 30;
+int korok = 1000;
 char[,] matrix = new char[MatrixMeret, MatrixMeret];
 Random r = new Random();
 int kezdoHelyNyul = r.Next(MatrixMeret / 2, MatrixMeret - 1);
@@ -33,7 +33,7 @@ Kiiras(matrix, MatrixMeret);
 
 for (int i = 0; i < korok; i++)
 {
-    Thread.Sleep(10);
+    Thread.Sleep(100);
     szimulacio.Kor(matrix, allatok);
     Kiiras(matrix, MatrixMeret);
 }

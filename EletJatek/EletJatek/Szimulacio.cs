@@ -29,23 +29,17 @@ namespace EletJatek
         }
         private void AllatokAKorben(char[,] matrix, List<Allatok> mozgoAllatok, List<Allatok> osszesAllatok)
         {
-            List<Allatok> halottallat = new List<Allatok>();
-
             foreach (var allat in mozgoAllatok)
             {
                 allat.Ehezik();
+                if (allat.Halott)
+                {
+                    allat.Meghalt(matrix, osszesAllatok);
+                    continue;
+                }
                 allat.Szaporodik(matrix, osszesAllatok);
                 allat.Mozog(matrix);
                 allat.Eszik(matrix, osszesAllatok);
-                if (allat.Halott)
-                {
-                    halottallat.Add(allat);
-                }
-            }
-
-            foreach (var halott in halottallat)
-            {
-                halott.Meghalt(matrix, mozgoAllatok);
             }
         }
         public void Kor(char[,] matrix, List<Allatok> allatok)
