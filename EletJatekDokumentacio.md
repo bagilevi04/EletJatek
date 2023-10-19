@@ -9,7 +9,7 @@ A program **C#** programozási nyelvben készült, törekszik a **Clean Code** e
 - A kiírásnál látható színek és karakterek:
     - Fű:
         - 0 - ciánkék, 1 - sötétzöld, 2 - világoszöld
-    -Róka:
+    - Róka:
         - R - vörös
     - Nyúl: 
         - N - szürke
@@ -41,3 +41,30 @@ A program **C#** programozási nyelvben készült, törekszik a **Clean Code** e
     - `Eszik()` - Hogyha átlép egy másik mezőre és a fű értéke 1, akkor a fűérték lenullázódik és továbblép, mindemellett megnő a jóllakottsági szintje egyel, ha a fű értéke 2 akkor a jóllakottsága kettővel nő és a fű értéke felveszi az egyes értéket, más esetben nem eszik a nyúl.
     - `Mozog()` - Véletlenszerűen egy szomszédos mezőre lép.
     - `Szaporodik()` - Meghívjuk a Bekovetkezette() metódust, abban az esetben, hogyha bekövetkezik, akkor nem történik semmi, ellenkező esetben megnézi, hogy a szomszédai valmelyik irányban nyúl-e, ha nyúl, akkor megnézi, hogy valamelyik szomszédos mezője üres-e, ha üres akkor inicializál még egy nyulat és az hozzáadódik a mátrixhoz.
+
+# Tesztelési terv
+
+- Program futásidő tesztelés:
+    - A program addig fut-e, amíg az összes nyúl vagy az összes róka meg nem hal?
+- Kiiras() metódus tesztelés:
+    - Ha a mátrix I, J elemén az érték ’0’, akkor a háttérszín DarkCyan-e, majd visszaáll-e ’Black’ színre;
+    - Ha a mátrix I, J elemén az érték ’1’, akkor a háttérszín DarkGreen, majd visszaáll-e ’Black’ színre;
+    - Ha a mátrix I, J elemén az érték ’2’, akkor a háttérszín Green, majd visszaáll-e ’Black’ színre;
+    - Ha a mátrix I, J elemén az érték ’N’, azaz nyúl, akkor a háttérszín Gray, majd visszaáll-e ’Black’ színre;
+    - Ha a mátrix I, J elemén az érték ’R’, azaz róka, akkor a háttérszín Red, majd visszaáll-e ’Black’ színre?
+- Fu() metódus tesztelés:
+    - Ha a mátrix I, J elemén az érték ’0’, akkor a fű értéke 1 lesz-e;
+    - Ha a mátrix I, J elemén az érték ’1’, akkor a fű értéke 2 lesz-e?
+- Ehezik() metódus tesztelés:
+    - Minden meghívás esetén csökken-e a ’Jóllakottság’ tulajdonság 1 értékkel-e;
+    - Ha ’Jóllakottság’ értéke 0, akkor a ’Halott’ értéke ’true’ lesz-e?
+- Meghalt() metódus tesztelés:
+    - Halál esetén a mátrix I, J pontján az érték fűérték lett-e?
+- Eszik() metódus tesztelése (nyúl esetén):
+    - Ha a fűnek az értéke 1 vagy 2, akkor a nyúl jóllakottsága nő-e X értékkel, illetve fűérték változik-e?
+
+---
+
+## Projekt név: Élet Játék
+
+### Készítette: Bagi Levente, Furka Dominik, Osztertág Ádám
