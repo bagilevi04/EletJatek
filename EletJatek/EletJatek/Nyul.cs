@@ -63,7 +63,7 @@
             matrix[UjPozX, UjPozY] = 'N';
         }
 
-        public override void Eszik(char[,] matrix, List<Allatok> _)
+        public override void Eszik(char[,] matrix, List<Allatok> allat)
         {
             int maxjollakottasg = 5;
             if (Jollakottsag != maxjollakottasg)
