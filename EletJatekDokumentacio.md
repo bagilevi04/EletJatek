@@ -44,6 +44,8 @@ A program **C#** programozási nyelvben készült, törekszik a **Clean Code** e
     - **`Mozog()`** - Véletlenszerűen egy szomszédos mezőre lép.
     - **`Szaporodik()`** - Meghívjuk a Bekovetkezette() metódust, abban az esetben, hogyha bekövetkezik, akkor nem történik semmi, ellenkező esetben megnézi, hogy a szomszédai valmelyik irányban nyúl-e, ha nyúl, akkor megnézi, hogy valamelyik szomszédos mezője üres-e, ha üres akkor inicializál még egy nyulat és az hozzáadódik a mátrixhoz.
 
+    ---
+
 # Tesztelési terv
 
 - Program futásidő tesztelés:
