@@ -30,7 +30,7 @@ namespace EletJatek
                         var nyul = allat.Find(x => this.PozX == x.PozX && this.PozY == x.PozY && x is Nyul);
                         if (nyul is null)
                         {
-                            return;
+                            break;
                         }
                         else
                         {
