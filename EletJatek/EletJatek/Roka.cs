@@ -16,7 +16,7 @@ namespace EletJatek
         public override void Eszik(char[,] matrix, List<Allatok> allat)
         {
             int maxjollakottsag = 10;
-            if (Jollakottsag != maxjollakottsag)
+            if (Jollakottsag < maxjollakottsag)
             {
                 switch (FuErtek)
                 {
