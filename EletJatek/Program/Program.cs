@@ -33,7 +33,7 @@ Kiiras(matrix, MatrixMeret);
 
 while (allatok.Where(x => x is Nyul).ToList().Count != 0 && allatok.Where(x => x is Roka).ToList().Count != 0)
 {
-    Thread.Sleep(100);
+    Thread.Sleep(300);
     szimulacio.Kor(matrix, allatok);
     Kiiras(matrix, MatrixMeret);
 }
