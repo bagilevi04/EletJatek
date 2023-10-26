@@ -115,7 +115,7 @@ namespace EletJatek
 
         public override void Szaporodik(char[,] matrix, List<Allatok> allat)
         {
-            if (!Bekovetkezette(25)) { return; }
+            if (!Bekovetkezette(40)) { return; }
             if (PozX + 1 < matrix.GetLength(0) && matrix[PozX + 1, PozY] == 'R')
             {
                 if (PozX - 1 > 0 && matrix[PozX - 1, PozY] != 'R' && matrix[PozX - 1, PozY] != 'N')
